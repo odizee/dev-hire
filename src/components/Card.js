@@ -26,8 +26,6 @@ const Card = ({ name, id, avatar, service_photo, starting_from, currName }) => {
     starting_from,
   };
 
-  console.log("fresh", selectedCurrency);
-
   // const toggleLike = () => {
   //   setLike(!liked)
   // }
@@ -76,8 +74,10 @@ const Card = ({ name, id, avatar, service_photo, starting_from, currName }) => {
         <div className="text">
           <h3>{name}</h3>
           <p>
-            {selectedCurrency.symbol}
-            <span>{(starting_from / selectedCurrency.divider).toFixed(2)}</span>
+            {selectedCurrency?.symbol}
+            <span>
+              {(starting_from / selectedCurrency?.divider).toFixed(2)}
+            </span>
           </p>
         </div>
         <h3 className="hire">Hire</h3>
