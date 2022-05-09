@@ -45,8 +45,9 @@
         align-items: center;
         justify-content: space-between;
         max-width: 65vw;
-
+        
         @media (max-width: 35em) {
+            max-width: 100%;
             flex-direction: column;
             margin-bottom: 3rem;
         }
