@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import apiService from "./apiService";
 
+//INITIAL STATE
 const initialState = {
   freelancers: [],
   isError: false,
@@ -23,6 +24,7 @@ export const getFreelancers = createAsyncThunk(
   }
 );
 
+//SLICE
 export const freelancersSlice = createSlice({
   name: "freelancers",
   initialState,

@@ -6,34 +6,32 @@ import "./styles/currencyStyles.scss";
 import drop from "./../assets/drop.png";
 
 const Currency = ({ selected, setSelected }) => {
+  //STATES
   const { currencies } = useSelector((state) => state.currencies);
+  const { selectedCurrency } = useSelector((state) => state.selectedCurrency);
   const [isActive, setIsActive] = useState(false);
   const dispatch = useDispatch();
 
+  //USEEFFECTS
   useEffect(() => {
     dispatch(getCurrencies());
-    // console.log(currencies.data.currencies)
   }, [getCurrencies]);
 
-  // useEffect(() => {
-  //   // console.log(currencies.data.currencies)
-  // }, [selected]);
-
+  //DECLARE CURRENCY DATA
   const currencyData = currencies?.data?.currencies;
-
-  console.log(selected);
 
   return (
     <div className="dropdown">
       <div className="dropdown-btn" onClick={(e) => setIsActive(!isActive)}>
         <div className="dropdown-btn-name">
-          <img src={selected.flag_url} alt="" />
-          {selected.name}
+          <img src={selectedCurrency.flag_url} alt="" />
+          {selectedCurrency.name}
         </div>
         <span>
           <img src={drop} alt="" />
         </span>
       </div>
+      {/* MAP CURRENCY DATA */}
       {isActive && (
         <div className="dropdown-content">
           {currencyData.map((currency) => (
@@ -44,6 +42,7 @@ const Currency = ({ selected, setSelected }) => {
                 setIsActive(false);
               }}
               className="dropdown-item"
+              key={currency.id}
             >
               <img src={currency.flag_url} alt="" />
               {currency.name}

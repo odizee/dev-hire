@@ -1,30 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import apiService from "./apiService";
 
+//GET FAV FROM LOCAL STORAGE
 const fav = JSON.parse(localStorage.getItem("fav"));
 
+//INITIAL STATE
 const initialState = {
-  favourites: [],
+  favourites: fav,
   isLike: false,
   isSuccess: false,
   isLoading: false,
   message: "",
 };
 
-// Freelancer data
-export const getFavs = createAsyncThunk(
-  "favourites/create",
-  async (thunkApi) => {
-    try {
-      return "name";
-    } catch (error) {
-      const message =
-        error.response.data.message || error.message || error.toString();
-      return thunkApi.rejectWithValue(message);
-    }
-  }
-);
-
+//SLICE
 export const favouriteSlice = createSlice({
   name: "favourites",
   initialState,
@@ -44,23 +32,6 @@ export const favouriteSlice = createSlice({
       localStorage.setItem("fav", JSON.stringify(state.favourites));
     },
   },
-  // extraReducers: (builder) => {
-  //   builder
-  //     .addCase(getFreelancers.pending, (state) => {
-  //       state.isLoading = true;
-  //     })
-  //     .addCase(getFreelancers.fulfilled, (state, action) => {
-  //       state.isLoading = false;
-  //       state.isSuccess = true;
-  //       state.freelancers = action.payload;
-  //     })
-  //     .addCase(getFreelancers.rejected, (state, action) => {
-  //       state.isLoading = false;
-  //       state.isError = true;
-  //       state.message = action.payload;
-  //       state.freelancers = action.payload;
-  //     });
-  // },
 });
 
 export const { addFav, removeFav } = favouriteSlice.actions;

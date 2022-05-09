@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//BASE API
 const API_URL = "https://api.terawork.com/";
 
 //Freelancers

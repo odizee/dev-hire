@@ -6,15 +6,11 @@ import Currency from "./Currency";
 import "./styles/freelancersStyles.scss";
 
 const Favourites = () => {
+  //REDUX
   const { favourites } = useSelector((state) => state.favourite);
-  // const [liked, setLike] = useState(true);
+
+  //STATE
   const [selected, setSelected] = useState("");
-
-  const dispatch = useDispatch();
-  useEffect(() => {}, [getFavs]);
-
-  // const favs = JSON.stringify(favourites);
-  console.log(favourites);
 
   return (
     <div>
@@ -24,6 +20,7 @@ const Favourites = () => {
           <h2>No Favourites</h2>
         ) : (
           <div className="freelancers_list">
+            {/* MAP OVER FAVS */}
             {(favourites || []).map((fav) => (
               <div className="cards">
                 <Card
@@ -35,7 +32,6 @@ const Favourites = () => {
                   like={true}
                 />
               </div>
-              // <h1>{developer._source.url_name}</h1>
             ))}
           </div>
         )}

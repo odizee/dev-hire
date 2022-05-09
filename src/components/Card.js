@@ -6,18 +6,21 @@ import { addFav, removeFav } from "../states/favouriteSlice";
 import { useEffect, useState } from "react";
 
 const Card = ({ name, id, avatar, service_photo, starting_from, currName }) => {
+  //STATES
   const [liked, setLiked] = useState(false);
+
+  //REDUX
+  const dispatch = useDispatch();
   const { selectedCurrency } = useSelector((state) => state.selectedCurrency);
 
+  //INLINE STYLES
   const miscStyle = {
     backgroundImage: `url(${service_photo})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
   };
 
-  const dispatch = useDispatch();
-  // console.log(name)
-
+  //COMPONENT PROPERTIES
   const props = {
     name,
     id,
@@ -26,39 +29,24 @@ const Card = ({ name, id, avatar, service_photo, starting_from, currName }) => {
     starting_from,
   };
 
-  // const toggleLike = () => {
-  //   setLike(!liked)
-  // }
-
+  //ONCLICK HANDLER
   const favHandler = (val) => {
     const data = val.target.dataset.fav;
     setLiked(!liked);
-    // const likes = JSON.parse(data)
-    // console.log("console", likes.like)
+
     const objData = JSON.parse(data);
 
-    // objData['like'] = !liked
-
-    console.log(JSON.stringify(objData.like));
-    console.log(objData);
-
-    // liked === true ? dispatch(removeFav(JSON.stringify(objData))) : dispatch(addFav(JSON.stringify(objData)));
-
+    //CONDITION FOR SETTING FAVOURITES
     if (liked === true) {
       dispatch(removeFav(JSON.stringify(objData)));
     } else {
       dispatch(addFav(JSON.stringify(objData)));
     }
-    // liked === true ? dispatch(removeFav(objData)) : dispatch(addFav(objData));
-    // localStorage.setItem('fav', data)
   };
-
-  console.log(liked);
 
   return (
     <div className="card">
       <div className="image_top" style={miscStyle}>
-        {/* <img src={service_photo} alt="" /> */}
         <img
           className="fav"
           data-fav={JSON.stringify(props)}
