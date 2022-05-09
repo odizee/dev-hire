@@ -8,17 +8,20 @@ import Card from "./Card";
 import Currency from "./Currency";
 
 const Freelancers = () => {
-  //STATES
-  const [selected, setSelected] = useState("");
-
   //REDUX
   const { freelancers, isLoading } = useSelector((state) => state.freelancers);
+
+  const { currencies } = useSelector((state) => state.currencies);
 
   const { selectedCurrency } = useSelector((state) => state.selectedCurrency);
 
   const developers = freelancers?.data?.service_search_results.hits;
-
+  const currencyData = currencies?.data?.currencies;
+  // console.log(currencyData[0].name);
   const dispatch = useDispatch();
+
+  //STATES
+  const [selected, setSelected] = useState("");
 
   //USEEFFECTS
   useEffect(() => {

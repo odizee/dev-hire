@@ -37,7 +37,7 @@ const Currency = ({ selected, setSelected }) => {
           {currencyData.map((currency) => (
             <div
               onClick={(e) => {
-                dispatch(selectCurrency(selected));
+                dispatch(selectCurrency(currency));
                 setSelected(currency);
                 setIsActive(false);
               }}
