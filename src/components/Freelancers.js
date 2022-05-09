@@ -25,7 +25,6 @@ const Freelancers = () => {
 
   const curr = selectedCurrency;
 
-  console.log("curr", curr.name);
   return (
     <div className="freelancers">
       <h1>Hire Top Developers</h1>
