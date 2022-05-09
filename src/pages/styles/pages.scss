@@ -1,0 +1,11 @@
+.home {
+    display: flex;
+    // grid-template-columns: 25% 75%;
+    // margin: auto;
+    align-items: stretch;
+
+     @media (max-width: 60em) {
+        flex-direction: column;
+      }
+
+}

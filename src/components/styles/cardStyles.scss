@@ -1,0 +1,68 @@
+.card {
+    width: 23.8rem;
+    height: 22.4rem;
+    background: var(--color-white);
+    border-radius: 10px;
+    position: relative;
+    .image_top {
+        background-color: brown;
+        border-radius: 10px;
+        // width: 60%;
+        height: 62%;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: .8rem;
+        padding-top: .8rem;
+        margin: .5rem .5rem 0 .5rem;
+        img {
+            // max-width: 100%;
+            height: 70%;
+        }
+
+        .fav {
+            border-radius: 10px;
+            background: #BBB;
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            padding: 1rem;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        
+        }
+    }
+
+    .details {
+        padding: 3rem 1.2rem;
+        display: flex;
+        justify-content: space-between;
+
+        .text {
+            h3 {
+                color: rgba(0, 0, 0, 0.80);
+            }
+            p {
+                color: rgba(0, 0, 0, 0.49);
+            }
+        }
+
+        .hire {
+            color: var(--accent-color);
+        }
+    }
+
+    .avatar {
+        position: absolute;
+        bottom: 55px;
+        left: 10px;
+
+        img{
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            border: 2px solid #FFFFFF;
+
+        }
+    }
+}
