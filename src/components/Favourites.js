@@ -18,7 +18,7 @@ const Favourites = () => {
       <div className="freelancers">
         <h1>Favourites</h1>
         {favourites.length === 0 ? (
-          <h2>No Favourites</h2>
+          <h2>No favorite developer yet</h2>
         ) : (
           <div className="freelancers_list">
             {/* MAP OVER FAVS */}
