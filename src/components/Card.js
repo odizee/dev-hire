@@ -5,9 +5,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFav, removeFav } from "../states/favouriteSlice";
 import { useEffect, useState } from "react";
 
-const Card = ({ name, id, avatar, service_photo, starting_from, currName }) => {
+const Card = ({
+  name,
+  id,
+  avatar,
+  service_photo,
+  starting_from,
+  liked,
+  setLiked,
+}) => {
   //STATES
-  const [liked, setLiked] = useState(false);
+  // const [liked, setLiked] = useState(false);
 
   //REDUX
   const dispatch = useDispatch();
@@ -32,7 +40,7 @@ const Card = ({ name, id, avatar, service_photo, starting_from, currName }) => {
   //ONCLICK HANDLER
   const favHandler = (val) => {
     const data = val.target.dataset.fav;
-    setLiked(!liked);
+    // setLiked(val.target.liked);
 
     const objData = JSON.parse(data);
 

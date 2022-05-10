@@ -11,6 +11,7 @@ const Favourites = () => {
 
   //STATE
   const [selected, setSelected] = useState("");
+  const [liked, setLiked] = useState(true);
 
   return (
     <div>
@@ -30,6 +31,8 @@ const Favourites = () => {
                   service_photo={JSON.parse(fav).service_photo}
                   starting_from={JSON.parse(fav).starting_from}
                   like={true}
+                  liked={liked}
+                  setLiked={setLiked}
                 />
               </div>
             ))}

@@ -22,6 +22,7 @@ const Freelancers = () => {
 
   //STATES
   const [selected, setSelected] = useState("");
+  const [liked, setLiked] = useState(false);
 
   //USEEFFECTS
   useEffect(() => {
@@ -43,6 +44,8 @@ const Freelancers = () => {
               avatar={developer._source?.avatar}
               service_photo={developer._source?.service_photo}
               starting_from={developer._source?.starting_from}
+              liked={liked}
+              setLiked={setLiked}
             />
           </div>
           // <h1>{developer._source.url_name}</h1>
