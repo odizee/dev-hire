@@ -2,12 +2,12 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import apiService from "./apiService";
 
 //GET CURRENCY FROM LOCAL STORAGE
-const selectedCurrency =
-  JSON.parse(localStorage.getItem("selectedCurrency")) || [];
+// const selectedCurrency =
+//   JSON.parse(localStorage.getItem("selectedCurrency")) || [];
 
 //INITIAL STATE
 const initialState = {
-  selectedCurrency: selectedCurrency,
+  selectedCurrency: [],
 };
 
 //SLICE
