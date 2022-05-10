@@ -6,7 +6,7 @@ const selectedCurrency = JSON.parse(localStorage.getItem("selectedCurrency"));
 
 //INITIAL STATE
 const initialState = {
-  selectedCurrency: selectedCurrency,
+  selectedCurrency: selectedCurrency || [],
 };
 
 //SLICE

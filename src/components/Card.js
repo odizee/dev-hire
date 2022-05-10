@@ -20,7 +20,9 @@ const Card = ({
   //REDUX
   const dispatch = useDispatch();
   const { selectedCurrency } = useSelector((state) => state.selectedCurrency);
-
+  const { currencies } = useSelector((state) => state.currencies);
+  const currencyData = currencies?.data?.currencies;
+  // console.log(currencyData[0].symbol);
   //INLINE STYLES
   const miscStyle = {
     backgroundImage: `url(${service_photo})`,
@@ -40,7 +42,7 @@ const Card = ({
   //ONCLICK HANDLER
   const favHandler = (val) => {
     const data = val.target.dataset.fav;
-    // setLiked(val.target.liked);
+    setLiked(!val.liked);
 
     const objData = JSON.parse(data);
 
@@ -70,9 +72,9 @@ const Card = ({
         <div className="text">
           <h3>{name}</h3>
           <p>
-            {selectedCurrency?.symbol}
+            {selectedCurrency?.symbol || <span>&#8358;</span>}
             <span>
-              {(starting_from / selectedCurrency?.divider).toFixed(2)}
+              {(starting_from / (selectedCurrency?.divider || 1)).toFixed(2)}
             </span>
           </p>
         </div>

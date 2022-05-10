@@ -24,8 +24,8 @@ const Currency = ({ selected, setSelected }) => {
     <div className="dropdown">
       <div className="dropdown-btn" onClick={(e) => setIsActive(!isActive)}>
         <div className="dropdown-btn-name">
-          <img src={selectedCurrency.flag_url} alt="" />
-          {selectedCurrency.name}
+          <img src={selectedCurrency?.flag_url} alt="" />
+          {selectedCurrency?.name}
         </div>
         <span>
           <img src={drop} alt="" />
