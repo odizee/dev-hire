@@ -5,7 +5,7 @@ const fav = JSON.parse(localStorage.getItem("fav"));
 
 //INITIAL STATE
 const initialState = {
-  favourites: fav,
+  favourites: fav || [],
   isLike: false,
   isSuccess: false,
   isLoading: false,
