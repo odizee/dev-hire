@@ -42,7 +42,6 @@ const Card = ({
   //ONCLICK HANDLER
   const favHandler = (val) => {
     const data = val.target.dataset.fav;
-    setLiked(!val.liked);
 
     const objData = JSON.parse(data);
 
